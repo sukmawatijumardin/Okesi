@@ -504,7 +504,7 @@
         // KODE EKSEKUSI API EXTERNAL (FETCH)
         function sendToBackend(actionName, payloadData) {
             return new Promise(async (resolve, reject) => {
-                if (GAS_URL.includes('https://script.google.com/macros/s/AKfycbyuxTIXYTYAI91e1eAX9gnhBJZ8mSO12aUGStpOJmWD0wUMhIUl2FTrRFpWspWkX37g/exec') || GAS_URL === '') {
+                if (GAS_URL === '') {
                     resolve({ status: 'error', message: 'Silakan konfigurasi GAS_URL di file index.html terlebih dahulu!' });
                     return;
                 }
@@ -532,7 +532,7 @@
                 if (localStorage.getItem('admin_login') === 'true') { isAdmin = true; updateAdminUI(); }
             } catch (e) { console.warn("Peringatan: localStorage tidak dapat diakses."); }
 
-            if (GAS_URL.includes('https://script.google.com/macros/s/AKfycbyuxTIXYTYAI91e1eAX9gnhBJZ8mSO12aUGStpOJmWD0wUMhIUl2FTrRFpWspWkX37g/execI') || GAS_URL === '') {
+            if (GAS_URL === '') {
                 showAlert("Konfigurasi Diperlukan", "Buka file index.html dan masukkan URL Web App Google Apps Script ke dalam variabel GAS_URL.", "warning");
                 renderAll();
                 return;
